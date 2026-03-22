@@ -208,14 +208,32 @@
 </div>
 
 <script>
-    // 1. 真实倒计时逻辑
+    // 1. 修复后的倒计时逻辑
     function startTimer(duration, display) {
-        let timer = localStorage.getItem('aldi_timer') || duration;
-        setInterval(() => {
+        let timer;
+        let savedTime = localStorage.getItem('aldi_timer');
+        
+        // 修复：如果没存过，或者存的值小于等于 0，则重置为初始时长
+        if (!savedTime || parseInt(savedTime) <= 0) {
+            timer = duration;
+        } else {
+            timer = parseInt(savedTime);
+        }
+
+        const interval = setInterval(() => {
             let minutes = parseInt(timer / 60, 10);
             let seconds = parseInt(timer % 60, 10);
-            display.textContent = (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
-            if (--timer < 0) timer = 0;
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                // 倒计时结束后的行为：这里设置为循环，你也可以设置为停在 00:00
+                timer = duration; 
+            }
+            // 实时保存当前剩余时间
             localStorage.setItem('aldi_timer', timer);
         }, 1000);
     }
@@ -231,6 +249,7 @@
     document.getElementById('comment-container').innerHTML = html + html; 
 
     window.onload = () => {
+        // 设置 600 秒（10分钟）
         startTimer(600, document.querySelector('#countdown'));
         document.getElementById('cur-date').innerText = new Date().toLocaleDateString('de-DE');
     };
