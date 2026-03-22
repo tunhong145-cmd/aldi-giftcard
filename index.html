@@ -168,22 +168,33 @@
 
     <div class="timer-container">
         <div class="timer-box">
-            <div class="live-dot"></div>
-            <span class="timer-text">Reserviert für:</span>
-            <span id="countdown">10:00</span>
-        </div>
-    </div>
+    <div class="live-dot"></div>
+    <span class="timer-text">Live: Dein €200 Gutschein + Hipp Paket ist gesperrt:</span>
+    <span id="countdown">10:00</span>
+</div>
 
-    <div class="hero-section">
-        <img src="voucher.png" class="floating-voucher" alt="200€ Gutschein">
-    </div>
+<style>
+    /* ... 保留之前的样式 ... */
+    .hero-section { padding: 30px 0; /* 去掉左右 padding */ background: #fff; text-align: center; }
+    .floating-voucher { 
+        width: 100%;       /* 横向撑满全屏 */
+        max-width: 500px;   /* 手机端依然不限制最大宽度 */
+        margin: 0 auto;
+        filter: drop-shadow(0 20px 30px rgba(0,0,0,0.12)); /* 卡片自带的高端阴影 */
+        animation: float 3.5s ease-in-out infinite;
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+    }
+</style>
 
-    <div class="steps-container">
-        <div class="step-item"><div class="step-num">1</div><div class="step-content"><b>Jetzt starten</b><p>Klicke auf den Button unten und beginne deine Bewertungsreise</p></div></div>
-        <div class="step-item"><div class="step-num">2</div><div class="step-content"><b>Daten angeben</b><p>Gib deine E-Mail-Adresse und grundlegende Informationen an</p></div></div>
-        <div class="step-item"><div class="step-num">3</div><div class="step-content"><b>4 Angebote abschließen</b><p>Schließe empfohlene Angebote speziell für dich ab</p></div></div>
-        <div class="step-item"><div class="step-num">4</div><div class="step-content"><b>Belohnung einlösen</b><p>Erhalte deine ALDI Geschenkkarte sofort</p></div></div>
-    </div>
+<div class="steps-container">
+    <div class="step-item"><div class="step-num">1</div><div class="step-content"><b>Jetzt starten</b><p>Klicke auf den Button unten und beginne deine Bewertungsreise.</p></div></div>
+    <div class="step-item"><div class="step-num">2</div><div class="step-content"><b>Daten angeben</b><p>Gib deine E-Mail-Adresse und grundlegende Informationen an.</p></div></div>
+    <div class="step-item"><div class="step-num">3</div><div class="step-content"><b>Bonus-Bestätigung</b><p>Bestätigen Sie den Erhalt Ihres zusätzlichen Hipp-Familien-Pakets.</p></div></div>
+    <div class="step-item"><div class="step-num">4</div><div class="step-content"><b>Zustellung</b><p>Erhalte deinen €200 Gutschein + Paket per Post in 3-5 Tagen.</p></div></div>
+</div>
 
     <div class="cta-section">
         <a href="你的追踪链接" class="main-btn">JETZT BEANSPRUCHEN</a>
