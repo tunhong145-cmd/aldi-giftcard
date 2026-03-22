@@ -1,36 +1,30 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <!-- TikTok Pixel Code Start -->
-<script>
-!function (w, d, t) {
-  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-
-
-  ttq.load('D6VTJ1JC77U4GR00FL3G');
-  ttq.page();
-}(window, document, 'ttq');
-</script>
-<!-- TikTok Pixel Code End -->
-    <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '905121178968619');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=905121178968619&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+    <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+      ttq.load('D6VTJ1JC77U4GR00FL3G');
+      ttq.page();
+    }(window, document, 'ttq');
+    </script>
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '905121178968619');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=905121178968619&ev=PageView&noscript=1"
+    /></noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -41,7 +35,7 @@ src="https://www.facebook.com/tr?id=905121178968619&ev=PageView&noscript=1"
         :root { 
             --aldi-blue: #004C97; 
             --aldi-light-blue: #00ADEF; 
-            --accent-orange: #ff4500;
+            --accent-red: #ff4e50; /* 调成和最终页按钮一致的红色 */
             --bg-gray: #f8fafc;
         }
 
@@ -54,12 +48,12 @@ src="https://www.facebook.com/tr?id=905121178968619&ev=PageView&noscript=1"
         }
 
         .navbar { 
-            background: #004C97; 
-            height: 80px; 
+            background: var(--aldi-blue); 
+            height: 90px; /* 增加高度以适应大Logo */
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            border-bottom: 3px solid #00ADEF; 
+            border-bottom: 3px solid var(--aldi-light-blue); 
             position: sticky; top: 0; z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
@@ -129,18 +123,17 @@ src="https://www.facebook.com/tr?id=905121178968619&ev=PageView&noscript=1"
 
         .cta-section { padding: 10px 25px 40px; }
         .main-btn { 
-            background: linear-gradient(135deg, #ff5f00, #ff4500); 
+            background: var(--accent-red); /* 对齐最终页颜色 */
             color: white; text-decoration: none; 
             display: block; padding: 20px; border-radius: 16px; 
             font-family: 'Montserrat', sans-serif; font-size: 20px; 
             font-weight: 800; letter-spacing: 0.05em;
-            box-shadow: 0 10px 20px rgba(255, 69, 0, 0.3); 
+            box-shadow: 0 10px 20px rgba(255, 78, 80, 0.3); 
             transition: all 0.2s ease;
             text-align: center;
         }
-        .main-btn:active { transform: scale(0.98); box-shadow: 0 5px 10px rgba(255, 69, 0, 0.2); }
+        .main-btn:active { transform: scale(0.98); box-shadow: 0 5px 10px rgba(255, 78, 80, 0.2); }
 
-        /* 优化后的申领动态区 */
         .comment-header { padding: 20px 25px 0; background: #fff; border-top: 10px solid #f1f5f9; }
         .comment-header h3 { font-family: 'Montserrat', sans-serif; font-size: 18px; color: #0f172a; margin: 0; }
         .comment-list-box { background: #fff; padding: 10px 20px 20px; overflow: hidden; height: 380px; position: relative; }
@@ -204,8 +197,15 @@ src="https://www.facebook.com/tr?id=905121178968619&ev=PageView&noscript=1"
     </div>
 
     <div class="cta-section">
-        <a href="https://gdmtrck.com/CMy5p3xERC" class="main-btn">JETZT BEANSPRUCHEN</a>
-        <p style="font-size: 12px; color: #94a3b8; margin-top: 18px; text-align: center;">Aktion gültig für: <span id="cur-date"></span></p>
+        <p style="font-size: 14px; color: #1e293b; text-align: center; margin-bottom: 12px; font-weight: 600; line-height: 1.4;">
+            ⚠️ Fast geschafft! <br>
+            Gib im nächsten Schritt deine Versanddaten an:
+        </p>
+
+        <a href="https://gdmtrck.com/CMy5p3xERC" class="main-btn" onclick="trackClick()">JETZT BEANSPRUCHEN</a>
+        
+        <p style="font-size: 12px; color: #94a3b8; margin-top: 18px; text-align: center;">Aktion gültig für: <span id="cur-date"></span><br>
+        <span style="font-size: 10px;">*Der Versand erfolgt nach erfolgreicher Verifizierung.</span></p>
     </div>
 
     <div class="comment-header">
@@ -221,6 +221,16 @@ src="https://www.facebook.com/tr?id=905121178968619&ev=PageView&noscript=1"
 </div>
 
 <script>
+    // 增加点击追踪函数
+    function trackClick() {
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'AddToCart'); // 告诉FB这是高意向动作
+        }
+        if (typeof ttq !== 'undefined') {
+            ttq.track('AddToCart'); // 告诉TikTok
+        }
+    }
+
     function startTimer(duration, display) {
         let timer;
         let savedTime = localStorage.getItem('aldi_timer');
