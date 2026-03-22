@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>ALDI Dankeprogramm - 200€</title>
+    <title>ALDI Dankeprogramm - 200€ + HIPP Paket</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     
     <style>
@@ -12,10 +12,9 @@
             --aldi-blue: #004C97; 
             --aldi-light-blue: #00ADEF; 
             --accent-orange: #ff4500;
-            --bg-gray: #f8fafc; /* 更清爽的背景色 */
+            --bg-gray: #f8fafc;
         }
 
-        /* 基础样式优化 */
         body { 
             font-family: 'Inter', -apple-system, sans-serif; 
             background-color: var(--bg-gray); 
@@ -24,7 +23,6 @@
             overflow-x: hidden;
         }
 
-        /* 顶部 Logo 栏 */
         .navbar { 
             background: #004C97; 
             height: 80px; 
@@ -37,7 +35,6 @@
         }
         .logo-img { height: 65px; width: auto; display: block; }
 
-        /* 主容器 */
         .wrapper { 
             max-width: 500px; 
             margin: 0 auto; 
@@ -47,10 +44,7 @@
             display: flex; flex-direction: column;
         }
 
-        /* --- 重新设计的倒计时 --- */
-        .timer-container {
-            padding: 20px 20px 10px;
-        }
+        .timer-container { padding: 20px 20px 10px; }
         .timer-box { 
             background: #ffffff; 
             border: 1px solid #e2e8f0; 
@@ -74,32 +68,25 @@
             70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
         }
-        .timer-text {
-            color: #64748b; font-size: 14px; font-weight: 500; letter-spacing: -0.01em;
-        }
+        .timer-text { color: #64748b; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
         #countdown { 
             color: #0f172a; 
             font-size: 20px; 
             font-weight: 700; 
-            font-family: 'Courier New', Courier, monospace; /* 等宽字体防止抖动 */
+            font-family: 'Courier New', Courier, monospace;
             background: #f1f5f9;
             padding: 2px 8px;
             border-radius: 6px;
         }
 
-        /* 悬浮跳动优惠券 */
         .hero-section { padding: 30px 15px; background: #fff; text-align: center; }
         .floating-voucher { 
-            width: 90%; max-width: 380px; 
+            width: 100%; max-width: 420px; 
             filter: drop-shadow(0 20px 30px rgba(0,0,0,0.12));
             animation: float 3.5s ease-in-out infinite;
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
-        /* 四步走流程字体增强 */
         .steps-container { padding: 25px; background: #fff; }
         .step-item { display: flex; align-items: flex-start; margin-bottom: 25px; }
         .step-num { 
@@ -107,13 +94,9 @@
             border-radius: 10px; display: flex; align-items: center; justify-content: center; 
             font-weight: 800; margin-right: 18px; flex-shrink: 0; font-size: 16px;
         }
-        .step-content b { 
-            display: block; font-family: 'Montserrat', sans-serif;
-            font-size: 17px; color: #0f172a; margin-bottom: 6px; 
-        }
+        .step-content b { display: block; font-family: 'Montserrat', sans-serif; font-size: 17px; color: #0f172a; margin-bottom: 6px; }
         .step-content p { margin: 0; font-size: 14.5px; color: #64748b; line-height: 1.6; }
 
-        /* 按钮高级感 */
         .cta-section { padding: 10px 25px 40px; }
         .main-btn { 
             background: linear-gradient(135deg, #ff5f00, #ff4500); 
@@ -127,29 +110,10 @@
         }
         .main-btn:active { transform: scale(0.98); box-shadow: 0 5px 10px rgba(255, 69, 0, 0.2); }
 
-        /* 留言板 UI 优化 */
-        .comment-form { padding: 30px 25px; background: #fff; border-top: 10px solid #f1f5f9; text-align: left; }
-        .comment-form h3 { font-family: 'Montserrat', sans-serif; font-size: 19px; margin-bottom: 20px; color: #0f172a; }
-        .input-field { 
-            width: 100%; border: 1px solid #e2e8f0; border-radius: 12px; 
-            padding: 16px; margin-bottom: 15px; font-size: 16px; 
-            box-sizing: border-box; outline: none; background: #f8fafc;
-            transition: border-color 0.2s;
-        }
-        .input-field:focus { border-color: var(--aldi-light-blue); background: #fff; }
-        
-        .upload-btn { 
-            border: 1px dashed #cbd5e1; background: #f8fafc; padding: 12px 20px; 
-            border-radius: 12px; font-size: 14px; color: #64748b; 
-            display: inline-flex; align-items: center; cursor: pointer; margin-bottom: 25px; 
-        }
-        .post-btn { 
-            background: #64748b; color: white; border: none; padding: 18px; 
-            border-radius: 12px; font-size: 16px; font-weight: 700; width: 100%; cursor: pointer;
-        }
-
-        /* 滚动评论区 */
-        .comment-list-box { background: #fff; padding: 20px; border-top: 1px solid #f1f5f9; overflow: hidden; height: 380px; position: relative; }
+        /* 优化后的申领动态区 */
+        .comment-header { padding: 20px 25px 0; background: #fff; border-top: 10px solid #f1f5f9; }
+        .comment-header h3 { font-family: 'Montserrat', sans-serif; font-size: 18px; color: #0f172a; margin: 0; }
+        .comment-list-box { background: #fff; padding: 10px 20px 20px; overflow: hidden; height: 380px; position: relative; }
         .scroll-wrapper { animation: scrollUp 45s linear infinite; }
         .c-item { display: flex; padding: 18px 0; border-bottom: 1px solid #f8fafc; }
         .u-avatar { width: 48px; height: 48px; border-radius: 14px; margin-right: 15px; background-size: cover; flex-shrink: 0; border: 1px solid #f1f5f9; }
@@ -169,7 +133,7 @@
     <div class="timer-container">
        <div class="timer-box">
             <div class="live-dot"></div>
-            <span class="timer-text">Reserviert für:</span>
+            <span class="timer-text">RESERVIERT: €200 GUTSCHEIN + PAKET</span>
             <span id="countdown">10:00</span>
         </div>
     </div>
@@ -179,52 +143,44 @@
     </div>
 
     <div class="steps-container">
-    <div class="step-item">
-        <div class="step-num">1</div>
-        <div class="step-content">
-            <b>Angebot aktivieren</b>
-            <p>Klicke auf den Button unten, um deine Teilnahme am ALDI + Hipp Programm zu starten.</p>
+        <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <b>Angebot aktivieren</b>
+                <p>Klicke auf den Button unten, um deine Teilnahme am ALDI + Hipp Programm zu starten.</p>
+            </div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <b>Daten verifizieren</b>
+                <p>Gib deine E-Mail-Adresse und Postanschrift für die Zustellung des Gutscheins an.</p>
+            </div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <b>Hipp Paket sichern</b>
+                <p>Bestätige den Erhalt deines zusätzlichen Familien-Testpakets von Hipp.</p>
+            </div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-content">
+                <b>Sofortiger Versand</b>
+                <p>Nach erfolgreicher Prüfung wird dein €200 Gutschein + Paket direkt zu dir geschickt.</p>
+            </div>
         </div>
     </div>
-
-    <div class="step-item">
-        <div class="step-num">2</div>
-        <div class="step-content">
-            <b>Daten verifizieren</b>
-            <p>Gib deine E-Mail-Adresse und Postanschrift für die Zustellung des Gutscheins an.</p>
-        </div>
-    </div>
-
-    <div class="step-item">
-        <div class="step-num">3</div>
-        <div class="step-content">
-            <b>Hipp Paket sichern</b>
-            <p>Bestätige den Erhalt deines zusätzlichen Familien-Testpakets von Hipp.</p>
-        </div>
-    </div>
-
-    <div class="step-item">
-        <div class="step-num">4</div>
-        <div class="step-content">
-            <b>Sofortiger Versand</b>
-            <p>Nach erfolgreicher Prüfung wird dein €200 Gutschein + Paket direkt zu dir nach Hause geschickt.</p>
-        </div>
-    </div>
-</div>
 
     <div class="cta-section">
         <a href="你的追踪链接" class="main-btn">JETZT BEANSPRUCHEN</a>
         <p style="font-size: 12px; color: #94a3b8; margin-top: 18px; text-align: center;">Aktion gültig für: <span id="cur-date"></span></p>
     </div>
 
-    <div class="comment-form">
-        <h3>Kommentar hinterlassen</h3>
-        <input type="text" class="input-field" placeholder="Dein Name">
-        <textarea class="input-field" placeholder="Schreibe einen Kommentar..."></textarea>
-        <div class="upload-btn">📷 <span>Foto hinzufügen</span> <span style="color:#94a3b8; margin-left:10px;">Optional</span></div>
-        <button class="post-btn" onclick="alert('Vielen Dank! Dein Kommentar wird nach der Prüfung veröffentlicht.')">Kommentar posten</button>
+    <div class="comment-header">
+        <h3>Live-Aktivierungen</h3>
     </div>
-
     <div class="comment-list-box">
         <div class="scroll-wrapper" id="comment-container"></div>
     </div>
@@ -235,37 +191,23 @@
 </div>
 
 <script>
-    // 1. 修复后的倒计时逻辑
     function startTimer(duration, display) {
         let timer;
         let savedTime = localStorage.getItem('aldi_timer');
-        
-        // 修复：如果没存过，或者存的值小于等于 0，则重置为初始时长
         if (!savedTime || parseInt(savedTime) <= 0) {
             timer = duration;
         } else {
             timer = parseInt(savedTime);
         }
-
-        const interval = setInterval(() => {
+        setInterval(() => {
             let minutes = parseInt(timer / 60, 10);
             let seconds = parseInt(timer % 60, 10);
-
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            display.textContent = minutes + ":" + seconds;
-
-            if (--timer < 0) {
-                // 倒计时结束后的行为：这里设置为循环，你也可以设置为停在 00:00
-                timer = duration; 
-            }
-            // 实时保存当前剩余时间
+            display.textContent = (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
+            if (--timer < 0) timer = duration;
             localStorage.setItem('aldi_timer', timer);
         }, 1000);
     }
 
-    // 2. 自动生成 15 条评论
     const names = ["Karin W.", "Thomas M.", "Sabine S.", "Lukas B.", "Monika H.", "Andreas F.", "Petra G.", "Stefan K.", "Janine T.", "Michael R.", "Anja L.", "Bernd D.", "Helga P.", "Uwe J.", "Sandra C."];
     const texts = ["Endlich mal ein echter Gutschein! Hat super geklappt.", "Die 200€ kamen genau richtig für den Familieneinkauf.", "Hipp Produkte sind top, danke für die Aktion!", "Einfach auszufüllen, Gutschein war nach 5 Min da.", "Ich liebe Aldi Nord. Seriöse Aktion.", "Schon meinen Freunden weiterempfohlen!", "Hat alles reibungslos funktioniert.", "Gutschein wurde an der Kasse sofort akzeptiert.", "Perfekt für junge Mütter, danke Hipp!", "Ging viel schneller als ich dachte.", "Tolle Überraschung am Morgen!", "Alles super, 5 Sterne!", "Mein Wocheneinkauf war diesmal gratis.", "Gerade per E-Mail erhalten, danke!", "Hatte erst Zweifel, aber es ist 100% echt."];
     
@@ -276,7 +218,6 @@
     document.getElementById('comment-container').innerHTML = html + html; 
 
     window.onload = () => {
-        // 设置 600 秒（10分钟）
         startTimer(600, document.querySelector('#countdown'));
         document.getElementById('cur-date').innerText = new Date().toLocaleDateString('de-DE');
     };
