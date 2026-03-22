@@ -5,42 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>ALDI Dankeprogramm - 200€</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root { 
             --aldi-blue: #004C97; 
             --aldi-light-blue: #00ADEF; 
             --accent-orange: #ff4500;
-            --bg-gray: #f2f5f7;
+            --bg-gray: #f8fafc; /* 更清爽的背景色 */
         }
 
-        /* 基础样式与移动端优化 */
+        /* 基础样式优化 */
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            font-family: 'Inter', -apple-system, sans-serif; 
             background-color: var(--bg-gray); 
-            margin: 0; padding: 0; color: #333; 
+            margin: 0; padding: 0; color: #1e293b; 
             -webkit-font-smoothing: antialiased;
-            -webkit-tap-highlight-color: transparent;
             overflow-x: hidden;
         }
 
         /* 顶部 Logo 栏 */
-       .navbar { 
-    background: #004C97; /* 保持你的 ALDI 蓝色不变 */
-    height: 80px;        /* 稍微调高一点，给大 Logo 空间 */
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    border-bottom: 3px solid #00ADEF; 
-    position: sticky; 
-    top: 0; 
-    z-index: 100; 
-}
-
-.logo-img { 
-    height: 65px;        /* 从之前的 40px 提高到 65px */
-    width: auto;         /* 宽度自动缩放 */
-    display: block;
-}
+        .navbar { 
+            background: #004C97; 
+            height: 80px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-bottom: 3px solid #00ADEF; 
+            position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo-img { height: 65px; width: auto; display: block; }
 
         /* 主容器 */
         .wrapper { 
@@ -48,84 +43,118 @@
             margin: 0 auto; 
             background: white; 
             min-height: 100vh; 
-            box-shadow: 0 0 30px rgba(0,0,0,0.1); 
+            box-shadow: 0 0 40px rgba(0,0,0,0.05); 
             display: flex; flex-direction: column;
         }
 
-        /* 真实倒计时器 */
-        .timer-box { 
-            background: #fffbe6; 
-            border: 1px dashed #ffe58f; 
-            padding: 12px; 
-            margin: 15px; 
-            border-radius: 10px; 
-            color: #856404; 
-            font-weight: 600; 
-            font-size: 13px; 
-            text-align: center;
+        /* --- 重新设计的倒计时 --- */
+        .timer-container {
+            padding: 20px 20px 10px;
         }
-        #countdown { color: var(--accent-orange); font-size: 18px; margin-left: 5px; font-variant-numeric: tabular-nums; }
+        .timer-box { 
+            background: #ffffff; 
+            border: 1px solid #e2e8f0; 
+            padding: 15px; 
+            border-radius: 16px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .live-dot {
+            width: 8px; height: 8px;
+            background-color: #ef4444;
+            border-radius: 50%;
+            position: relative;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+        .timer-text {
+            color: #64748b; font-size: 14px; font-weight: 500; letter-spacing: -0.01em;
+        }
+        #countdown { 
+            color: #0f172a; 
+            font-size: 20px; 
+            font-weight: 700; 
+            font-family: 'Courier New', Courier, monospace; /* 等宽字体防止抖动 */
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
 
         /* 悬浮跳动优惠券 */
-        .hero-section { padding: 20px 15px; background: #fff; text-align: center; }
+        .hero-section { padding: 30px 15px; background: #fff; text-align: center; }
         .floating-voucher { 
-            width: 90%; 
-            max-width: 380px; 
-            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
+            width: 90%; max-width: 380px; 
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.12));
             animation: float 3.5s ease-in-out infinite;
         }
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-18px); }
+            50% { transform: translateY(-15px); }
         }
 
-        /* 四步走流程 */
-        .steps-container { padding: 20px; background: #fff; }
-        .step-item { display: flex; align-items: flex-start; margin-bottom: 22px; }
+        /* 四步走流程字体增强 */
+        .steps-container { padding: 25px; background: #fff; }
+        .step-item { display: flex; align-items: flex-start; margin-bottom: 25px; }
         .step-num { 
-            background: var(--aldi-blue); color: white; width: 30px; height: 30px; 
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-            font-weight: bold; margin-right: 15px; flex-shrink: 0; font-size: 15px;
+            background: var(--aldi-blue); color: white; width: 32px; height: 32px; 
+            border-radius: 10px; display: flex; align-items: center; justify-content: center; 
+            font-weight: 800; margin-right: 18px; flex-shrink: 0; font-size: 16px;
         }
-        .step-content b { display: block; font-size: 16px; color: var(--aldi-blue); margin-bottom: 4px; }
-        .step-content p { margin: 0; font-size: 14px; color: #666; line-height: 1.4; }
+        .step-content b { 
+            display: block; font-family: 'Montserrat', sans-serif;
+            font-size: 17px; color: #0f172a; margin-bottom: 6px; 
+        }
+        .step-content p { margin: 0; font-size: 14.5px; color: #64748b; line-height: 1.6; }
 
-        /* 按钮 */
-        .cta-section { padding: 10px 20px 30px; }
+        /* 按钮高级感 */
+        .cta-section { padding: 10px 25px 40px; }
         .main-btn { 
-            background: var(--accent-orange); color: white; text-decoration: none; 
-            display: block; padding: 18px; border-radius: 12px; font-size: 20px; 
-            font-weight: 800; box-shadow: 0 5px 0 #b33000; transition: transform 0.1s;
+            background: linear-gradient(135deg, #ff5f00, #ff4500); 
+            color: white; text-decoration: none; 
+            display: block; padding: 20px; border-radius: 16px; 
+            font-family: 'Montserrat', sans-serif; font-size: 20px; 
+            font-weight: 800; letter-spacing: 0.05em;
+            box-shadow: 0 10px 20px rgba(255, 69, 0, 0.3); 
+            transition: all 0.2s ease;
             text-align: center;
         }
-        .main-btn:active { transform: translateY(3px); box-shadow: 0 2px 0 #b33000; }
+        .main-btn:active { transform: scale(0.98); box-shadow: 0 5px 10px rgba(255, 69, 0, 0.2); }
 
-        /* 1:1 复刻留言板 */
-        .comment-form { padding: 25px; background: #fff; border-top: 10px solid #f4f7f9; text-align: left; }
-        .comment-form h3 { font-size: 18px; margin-bottom: 20px; color: #333; font-weight: 700; }
+        /* 留言板 UI 优化 */
+        .comment-form { padding: 30px 25px; background: #fff; border-top: 10px solid #f1f5f9; text-align: left; }
+        .comment-form h3 { font-family: 'Montserrat', sans-serif; font-size: 19px; margin-bottom: 20px; color: #0f172a; }
         .input-field { 
-            width: 100%; border: 1px solid #dce4ec; border-radius: 10px; 
-            padding: 14px; margin-bottom: 15px; font-size: 16px; 
-            box-sizing: border-box; outline: none; background: #fafbfc;
+            width: 100%; border: 1px solid #e2e8f0; border-radius: 12px; 
+            padding: 16px; margin-bottom: 15px; font-size: 16px; 
+            box-sizing: border-box; outline: none; background: #f8fafc;
+            transition: border-color 0.2s;
         }
-        textarea.input-field { height: 110px; }
+        .input-field:focus { border-color: var(--aldi-light-blue); background: #fff; }
+        
         .upload-btn { 
-            border: 1px dashed #dce4ec; background: #f8fafc; padding: 12px 18px; 
-            border-radius: 10px; font-size: 14px; color: #5d8ab5; 
+            border: 1px dashed #cbd5e1; background: #f8fafc; padding: 12px 20px; 
+            border-radius: 12px; font-size: 14px; color: #64748b; 
             display: inline-flex; align-items: center; cursor: pointer; margin-bottom: 25px; 
         }
         .post-btn { 
-            background: #7ba6cc; color: white; border: none; padding: 16px; 
-            border-radius: 10px; font-size: 17px; font-weight: 700; width: 100%; 
+            background: #64748b; color: white; border: none; padding: 18px; 
+            border-radius: 12px; font-size: 16px; font-weight: 700; width: 100%; cursor: pointer;
         }
 
-        /* 自动滚动评论区 */
-        .comment-list-box { background: #fff; padding: 20px; border-top: 1px solid #eee; overflow: hidden; height: 350px; position: relative; }
+        /* 滚动评论区 */
+        .comment-list-box { background: #fff; padding: 20px; border-top: 1px solid #f1f5f9; overflow: hidden; height: 380px; position: relative; }
         .scroll-wrapper { animation: scrollUp 45s linear infinite; }
-        .c-item { display: flex; padding: 15px 0; border-bottom: 1px solid #f0f0f0; }
-        .u-avatar { width: 45px; height: 45px; border-radius: 50%; margin-right: 12px; background-size: cover; flex-shrink: 0; }
-        .u-name { font-weight: bold; color: #3b5998; font-size: 14px; margin-bottom: 4px; }
-        .u-text { font-size: 14px; line-height: 1.4; color: #444; }
+        .c-item { display: flex; padding: 18px 0; border-bottom: 1px solid #f8fafc; }
+        .u-avatar { width: 48px; height: 48px; border-radius: 14px; margin-right: 15px; background-size: cover; flex-shrink: 0; border: 1px solid #f1f5f9; }
+        .u-name { font-weight: 700; color: #0f172a; font-size: 14px; margin-bottom: 4px; }
+        .u-text { font-size: 14px; line-height: 1.5; color: #475569; }
 
         @keyframes scrollUp { 0% { transform: translateY(0); } 100% { transform: translateY(-1500px); } }
     </style>
@@ -137,8 +166,12 @@
         <img src="top-logo.png" class="logo-img" alt="Aldi Logo">
     </div>
 
-    <div class="timer-box">
-        ⏳ Beeilung! Dein Gutschein ist reserviert für: <span id="countdown">10:00</span>
+    <div class="timer-container">
+        <div class="timer-box">
+            <div class="live-dot"></div>
+            <span class="timer-text">Reserviert für:</span>
+            <span id="countdown">10:00</span>
+        </div>
     </div>
 
     <div class="hero-section">
@@ -154,29 +187,28 @@
 
     <div class="cta-section">
         <a href="你的追踪链接" class="main-btn">JETZT BEANSPRUCHEN</a>
-        <p style="font-size: 12px; color: #999; margin-top: 15px;">Aktion gültig für: <span id="cur-date"></span></p>
+        <p style="font-size: 12px; color: #94a3b8; margin-top: 18px; text-align: center;">Aktion gültig für: <span id="cur-date"></span></p>
     </div>
 
     <div class="comment-form">
         <h3>Kommentar hinterlassen</h3>
         <input type="text" class="input-field" placeholder="Dein Name">
         <textarea class="input-field" placeholder="Schreibe einen Kommentar..."></textarea>
-        <div class="upload-btn">📷 <span>Foto hinzufügen</span> <span style="color:#ccc; margin-left:10px;">Optional</span></div>
-        <button class="post-btn" onclick="alert('Vielen Dank! Dein Kommentar wird geprüft.')">Kommentar posten</button>
+        <div class="upload-btn">📷 <span>Foto hinzufügen</span> <span style="color:#94a3b8; margin-left:10px;">Optional</span></div>
+        <button class="post-btn" onclick="alert('Vielen Dank! Dein Kommentar wird nach der Prüfung veröffentlicht.')">Kommentar posten</button>
     </div>
 
     <div class="comment-list-box">
-        <div class="scroll-wrapper" id="comment-container">
-            </div>
+        <div class="scroll-wrapper" id="comment-container"></div>
     </div>
 
-    <footer style="font-size:10px; color:#bbb; text-align:center; padding:30px 10px; line-height:1.5;">
+    <footer style="font-size:11px; color:#94a3b8; text-align:center; padding:40px 20px; line-height:1.6; background: #f8fafc;">
         © 2026 Alle Rechte vorbehalten. Diese Website ist nicht mit ALDI Nord/Süd oder HIPP verbunden. Markenzeichen gehören den jeweiligen Eigentümern.
     </footer>
 </div>
 
 <script>
-    // 1. 真实倒计时 (带 localStorage)
+    // 1. 真实倒计时逻辑
     function startTimer(duration, display) {
         let timer = localStorage.getItem('aldi_timer') || duration;
         setInterval(() => {
@@ -188,7 +220,7 @@
         }, 1000);
     }
 
-    // 2. 自动生成 15 条评论防止代码太乱
+    // 2. 自动生成 15 条评论
     const names = ["Karin W.", "Thomas M.", "Sabine S.", "Lukas B.", "Monika H.", "Andreas F.", "Petra G.", "Stefan K.", "Janine T.", "Michael R.", "Anja L.", "Bernd D.", "Helga P.", "Uwe J.", "Sandra C."];
     const texts = ["Endlich mal ein echter Gutschein! Hat super geklappt.", "Die 200€ kamen genau richtig für den Familieneinkauf.", "Hipp Produkte sind top, danke für die Aktion!", "Einfach auszufüllen, Gutschein war nach 5 Min da.", "Ich liebe Aldi Nord. Seriöse Aktion.", "Schon meinen Freunden weiterempfohlen!", "Hat alles reibungslos funktioniert.", "Gutschein wurde an der Kasse sofort akzeptiert.", "Perfekt für junge Mütter, danke Hipp!", "Ging viel schneller als ich dachte.", "Tolle Überraschung am Morgen!", "Alles super, 5 Sterne!", "Mein Wocheneinkauf war diesmal gratis.", "Gerade per E-Mail erhalten, danke!", "Hatte erst Zweifel, aber es ist 100% echt."];
     
@@ -196,7 +228,7 @@
     for(let i=0; i<15; i++) {
         html += `<div class="c-item"><div class="u-avatar" style="background-image:url('https://i.pravatar.cc/100?img=${i+10}')"></div><div><div class="u-name">${names[i]}</div><div class="u-text">${texts[i]}</div></div></div>`;
     }
-    document.getElementById('comment-container').innerHTML = html + html; // 双倍实现无缝滚动
+    document.getElementById('comment-container').innerHTML = html + html; 
 
     window.onload = () => {
         startTimer(600, document.querySelector('#countdown'));
