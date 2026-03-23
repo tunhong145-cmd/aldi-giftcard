@@ -25,17 +25,17 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=905121178968619&ev=PageView&noscript=1"
     /></noscript>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>ALDI Dankeprogramm - 200€ + HIPP Paket</title>
+    <title>ALDI & HiPP Produkttester - 600€ Gutscheine</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     
     <style>
         :root { 
             --aldi-blue: #004C97; 
             --aldi-light-blue: #00ADEF; 
-            --accent-red: #ff4e50; /* 调成和最终 Offer 页一致的红色 */
+            --accent-red: #e10915; 
             --bg-gray: #f8fafc;
         }
 
@@ -48,16 +48,16 @@
         }
 
         .navbar { 
-            background: #004C97; 
-            height: 90px; /* 适应放大后的 Logo */
+            background: var(--aldi-blue); 
+            height: 90px; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            border-bottom: 3px solid #00ADEF; 
+            border-bottom: 3px solid var(--aldi-light-blue); 
             position: sticky; top: 0; z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .logo-img { height: 75px; width: auto; display: block; }
+        .logo-img { height: 60px; width: auto; display: block; }
 
         .wrapper { 
             max-width: 500px; 
@@ -123,16 +123,16 @@
 
         .cta-section { padding: 10px 25px 40px; }
         .main-btn { 
-            background: var(--accent-red); /* 按钮颜色改为红色 */
+            background: var(--accent-red); 
             color: white; text-decoration: none; 
             display: block; padding: 20px; border-radius: 16px; 
             font-family: 'Montserrat', sans-serif; font-size: 20px; 
             font-weight: 800; letter-spacing: 0.05em;
-            box-shadow: 0 10px 20px rgba(255, 78, 80, 0.3); 
+            box-shadow: 0 10px 20px rgba(225, 9, 21, 0.3); 
             transition: all 0.2s ease;
             text-align: center;
         }
-        .main-btn:active { transform: scale(0.98); box-shadow: 0 5px 10px rgba(255, 78, 80, 0.2); }
+        .main-btn:active { transform: scale(0.98); box-shadow: 0 5px 10px rgba(225, 9, 21, 0.2); }
 
         .comment-header { padding: 20px 25px 0; background: #fff; border-top: 10px solid #f1f5f9; }
         .comment-header h3 { font-family: 'Montserrat', sans-serif; font-size: 18px; color: #0f172a; margin: 0; }
@@ -150,89 +150,84 @@
 
 <div class="wrapper">
     <div class="navbar">
-        <img src="top-logo.png" class="logo-img" alt="Aldi Logo">
+        <img src="top-logo.png" class="logo-img" alt="ALDI Logo">
     </div>
 
     <div class="timer-container">
        <div class="timer-box">
             <div class="live-dot"></div>
-            <span class="timer-text">RESERVIERT: €200 GUTSCHEIN + PAKET</span>
+            <span class="timer-text">RESERVIERT: 4x€150 GUTSCHEIN + HiPP PAKET</span>
             <span id="countdown">10:00</span>
         </div>
     </div>
 
     <div class="hero-section">
-        <img src="voucher.png" class="floating-voucher" alt="200€ Gutschein">
+        <img src="voucher.png" class="floating-voucher" alt="600€ Aldi Gutschein">
     </div>
 
     <div class="steps-container">
         <div class="step-item">
             <div class="step-num">1</div>
             <div class="step-content">
-                <b>Angebot aktivieren</b>
-                <p>Klicke auf den Button unten, um deine Teilnahme am ALDI + Hipp Programm zu starten.</p>
+                <b>Gratis Anmeldung</b>
+                <p>Starte jetzt deine Teilnahme am offiziellen ALDI & HiPP Testprogramm 2026.</p>
             </div>
         </div>
         <div class="step-item">
             <div class="step-num">2</div>
             <div class="step-content">
-                <b>Daten verifizieren</b>
-                <p>Gib deine E-Mail-Adresse und Postanschrift für die Zustellung des Gutscheins an.</p>
+                <b>4x €150 Gutscheine</b>
+                <p>Sichere dir ALDI Einkaufsgutscheine im Gesamtwert von 600€ für deinen Familieneinkauf.</p>
             </div>
         </div>
         <div class="step-item">
             <div class="step-num">3</div>
             <div class="step-content">
-                <b>Hipp Paket sichern</b>
-                <p>Bestätige den Erhalt deines zusätzlichen Familien-Testpakets von Hipp.</p>
+                <b>HiPP Baby-Set erhalten</b>
+                <p>Bestätige deine Daten, um das zusätzliche Bio-Pflegepaket von HiPP zu erhalten.</p>
             </div>
         </div>
         <div class="step-item">
             <div class="step-num">4</div>
             <div class="step-content">
-                <b>Sofortiger Versand</b>
-                <p>Nach erfolgreicher Prüfung wird dein €200 Gutschein + Paket direkt zu dir geschickt.</p>
+                <b>Schneller Versand</b>
+                <p>Dein Gewinnpaket wird nach erfolgreicher Registrierung sofort per Post verschickt.</p>
             </div>
         </div>
     </div>
 
     <div class="cta-section">
-        <p style="font-size: 14px; color: #1e293b; text-align: center; margin-bottom: 12px; font-weight: 600; line-height: 1.4;">
-            ⚠️ Fast geschafft! <br>
-            Gib im nächsten Schritt deine Versanddaten an:
+        <p style="font-size: 15px; color: #1e293b; text-align: center; margin-bottom: 15px; font-weight: 600; line-height: 1.4;">
+            ✨ Exklusiv für Familien in Deutschland! ✨<br>
+            Klicke unten, um deine Versandadresse zu prüfen:
         </p>
 
-        <a href="https://gdmtrck.com/CMy5p3xERC" class="main-btn" onclick="trackClick()">JETZT BEANSPRUCHEN</a>
+        <a href="https://gdmtrck.com/?a=XXXXX&c=XXXXX&s3=PIXEL_ID&s5=DOMAIN" class="main-btn" onclick="trackClick()">JETZT KOSTENLOS TEILNEHMEN</a>
         
-        <p style="font-size: 12px; color: #94a3b8; margin-top: 18px; text-align: center;">Aktion gültig für: <span id="cur-date"></span></p>
+        <p style="font-size: 12px; color: #94a3b8; margin-top: 18px; text-align: center;">Angebot gültig am: <span id="cur-date"></span></p>
     </div>
 
     <div class="comment-header">
-        <h3>Live-Aktivierungen</h3>
+        <h3>Neueste Bestätigungen</h3>
     </div>
     <div class="comment-list-box">
         <div class="scroll-wrapper" id="comment-container"></div>
     </div>
 
     <footer style="font-size:11px; color:#94a3b8; text-align:center; padding:40px 20px; line-height:1.6; background: #f8fafc;">
-        © 2026 Alle Rechte vorbehalten. Diese Website ist nicht mit ALDI Nord/Süd oder HIPP verbunden. Markenzeichen gehören den jeweiligen Eigentümern.
+        © 2026 Produkttester-Programm Deutschland. Diese Seite ist eine unabhängige Werbeaktion und steht nicht in direkter Verbindung mit ALDI Nord/Süd oder HiPP. Markenrechte liegen bei den jeweiligen Inhabern.
     </footer>
 </div>
 
 <script>
-    // 追踪函数：同时记录 FB 和 TikTok 的“加购”事件
     function trackClick() {
-        if (typeof fbq !== 'undefined') {
-            fbq('track', 'AddToCart'); 
-        }
-        if (typeof ttq !== 'undefined') {
-            ttq.track('AddToCart'); 
-        }
+        if (typeof fbq !== 'undefined') { fbq('track', 'AddToCart'); }
+        if (typeof ttq !== 'undefined') { ttq.track('AddToCart'); }
     }
 
     function startTimer(duration, display) {
         let timer;
-        let savedTime = localStorage.getItem('aldi_timer');
+        let savedTime = localStorage.getItem('aldi_hipp_timer');
         if (!savedTime || parseInt(savedTime) <= 0) {
             timer = duration;
         } else {
@@ -243,16 +238,32 @@
             let seconds = parseInt(timer % 60, 10);
             display.textContent = (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
             if (--timer < 0) timer = duration;
-            localStorage.setItem('aldi_timer', timer);
+            localStorage.setItem('aldi_hipp_timer', timer);
         }, 1000);
     }
 
-    const names = ["Karin W.", "Thomas M.", "Sabine S.", "Lukas B.", "Monika H.", "Andreas F.", "Petra G.", "Stefan K.", "Janine T.", "Michael R.", "Anja L.", "Bernd D.", "Helga P.", "Uwe J.", "Sandra C."];
-    const texts = ["Endlich mal ein echter Gutschein! Hat super geklappt.", "Die 200€ kamen genau richtig für den Familieneinkauf.", "Hipp Produkte sind top, danke für die Aktion!", "Einfach auszufüllen, Gutschein war nach 5 Min da.", "Ich liebe Aldi Nord. Seriöse Aktion.", "Schon meinen Freunden weiterempfohlen!", "Hat alles reibungslos funktioniert.", "Gutschein wurde an der Kasse sofort akzeptiert.", "Perfekt für junge Mütter, danke Hipp!", "Ging viel schneller als ich dachte.", "Tolle Überraschung am Morgen!", "Alles super, 5 Sterne!", "Mein Wocheneinkauf war diesmal gratis.", "Gerade per E-Mail erhalten, danke!", "Hatte erst Zweifel, aber es ist 100% echt."];
+    const names = ["Melanie K.", "Christian T.", "Annegret S.", "Marcel B.", "Helena H.", "Stefan W.", "Beate G.", "Julia F.", "Daniela T.", "Michael S.", "Vanessa L.", "Tobias D.", "Katja P.", "Udo J.", "Sarah C."];
+    const texts = [
+        "600€ Aldi Gutscheine sind da! Endlich mal ein Gewinn, der sich lohnt.",
+        "Das HiPP Paket kam super schnell an. Die Bio-Produkte sind klasse.",
+        "Meine Enkelin hat sich so gefreut, danke für die Aktion!",
+        "Dachte erst es dauert ewig, aber nach 3 Tagen war alles im Briefkasten.",
+        "Perfekt für den Wocheneinkauf. 4x150€ ist eine riesen Hilfe.",
+        "Tolle Sache für junge Familien. Einfach ausfüllen und fertig.",
+        "Habe die Gutscheine heute bei Aldi Nord eingelöst, null Probleme.",
+        "Super seriös, kann ich jeder Mama nur empfehlen!",
+        "Das HiPP Pflegeöl riecht so gut! Und die Gutscheine helfen echt.",
+        "Ging viel einfacher als gedacht. Danke!",
+        "Endlich mal Glück gehabt! Das Paket ist riesig.",
+        "Alles bestens, 5 Sterne für diese tolle Produkttester-Aktion.",
+        "600 Euro gespart, das ist Wahnsinn. Vielen vielen Dank!",
+        "Hatte erst Zweifel, aber es funktioniert wirklich.",
+        "Wurde gerade per E-Mail bestätigt, ich freue mich so!"
+    ];
     
     let html = "";
     for(let i=0; i<15; i++) {
-        html += `<div class="c-item"><div class="u-avatar" style="background-image:url('https://i.pravatar.cc/100?img=${i+10}')"></div><div><div class="u-name">${names[i]}</div><div class="u-text">${texts[i]}</div></div></div>`;
+        html += `<div class="c-item"><div class="u-avatar" style="background-image:url('https://i.pravatar.cc/100?img=${i+20}')"></div><div><div class="u-name">${names[i]}</div><div class="u-text">${texts[i]}</div></div></div>`;
     }
     document.getElementById('comment-container').innerHTML = html + html; 
 
